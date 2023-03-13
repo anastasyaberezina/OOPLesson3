@@ -1,26 +1,25 @@
 package Per;
 
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {   //Oбъекты класса Person
-        var aleksandr = new Person("Александр", 70);
-        var maria = new Person("Мария", 60);
-        var aleksey = new Person("Алексей", 45);
-        var elena = new Person("Елена",40)
+    public static void main(String[] args) throws IOException {   //Oбъекты класса Person
+        Person firstPerson = new Person("Александр", 70);
+        Person secondPerson = new Person("Мария", 60);
+        Person thridPerson = new Person("Алексей", 45);
+        Person fourtPerson = new Person("Елена",40);
+        Person fifthPerson = new Person("Елена",40);
 
-        Relations gt = new Relations();
+        firstPerson.append(secondPerson);
+        firstPerson.append(thridPerson);
+        secondPerson.append(fourtPerson);
+        secondPerson.append(fifthPerson);
 
-        gt.append(aleksandr, maria); //Связь муж-жена
+        secondPerson.getChildrenByPerson();
+        secondPerson.getParents(Relationships.CHILDREN);
+        firstPerson.print();
 
-        gt.append(aleksandr, aleksey); //Связь отец-ребенок
-        gt.append(aleksandr, aleksey);
-        gt.append(aleksandr, elena);
 
-        gt.append(maria, aleksey); //Cвязь мать-ребенок
-        gt.append(maria, elena);
-
-        gt.append(aleksey, elena) //Связь брат-сестра
-
-        System.out.println(new Search(gt).spend(elena, RelatedRelationship.child)); //Поиск родственной связи
 
 
     }
