@@ -1,2 +1,6 @@
-package Per;public class Relationships {
-}
+package Per;
+
+public enum Relationships {
+        PARENT,
+        CHILDREN
+    }
